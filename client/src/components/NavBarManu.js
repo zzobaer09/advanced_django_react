@@ -1,6 +1,8 @@
 import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
+import { NavLink } from 'react-router-dom';
+
 
 
 const NavBarManu = () => {
@@ -10,8 +12,8 @@ const NavBarManu = () => {
             <Container>
                 <Navbar.Brand href="/">Navbar</Navbar.Brand>
                 <Nav className="me-auto">
-                    <Nav.Link href="/">Home</Nav.Link>
-                    <Nav.Link href="addproduct">Add Product</Nav.Link>
+                    <NavLink className="show-products-nav" to="/">Home</NavLink>
+                    <NavLink className="add-products-nav" to="/addproduct">Add Product</NavLink>
                 </Nav>
             </Container>
       </Navbar>
