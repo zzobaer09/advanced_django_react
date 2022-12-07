@@ -5,10 +5,13 @@ import { Button } from "react-bootstrap";
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
+import API_URL from "./BackendDefaustUrls";
+
 const ShowProducts = () => {
+
     const [products , setState] = useState([])
     const getProducts = async () => {
-        const response = await axios.get("http://localhost:8000/api/")
+        const response = await axios.get(API_URL+"api/")
         setState(response.data)
     }
     useEffect(()=> {
@@ -17,6 +20,7 @@ const ShowProducts = () => {
 
     return (
         <div className="products-card-info">
+
             {
                 products.map((product , index)=>(
                     <Card className="m-2 rounden shadow-lg" style={{ width: '22rem' }}>
@@ -29,7 +33,7 @@ const ShowProducts = () => {
                         </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroup.Item>price: {product.price}</ListGroup.Item>
-                            <ListGroup.Item>{product.cetegory? product.cetegory : "unknown"}</ListGroup.Item>
+                            <ListGroup.Item>{product.category? product.category : "unknown"}</ListGroup.Item>
                         </ListGroup>
                         <Card.Body>
                             <Button variant="primary">Go somewhere</Button>
@@ -41,5 +45,6 @@ const ShowProducts = () => {
         </div>
     )
 }
+
 
 export default ShowProducts;
