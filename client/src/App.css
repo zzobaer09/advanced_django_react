@@ -58,3 +58,14 @@
   margin: 5px;
   padding: 5px;
 }
+
+#container-view{
+  width: 50%;
+}
+#img-view{
+  text-align: center;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
