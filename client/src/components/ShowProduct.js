@@ -4,6 +4,7 @@ import { Button } from "react-bootstrap";
 
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import { Link } from "react-router-dom";
 
 import API_URL from "./BackendDefaustUrls";
 
@@ -36,7 +37,7 @@ const ShowProducts = () => {
                             <ListGroup.Item>{product.category? product.category : "unknown"}</ListGroup.Item>
                         </ListGroup>
                         <Card.Body>
-                            <Button variant="primary">Go somewhere</Button>
+                            <Link className="btn btn-primary" to={`${product.id}`}>Show Detail</Link>
                         </Card.Body>
                     </Card>
                     
