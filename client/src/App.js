@@ -7,6 +7,7 @@ import ShowProducts from './components/ShowProduct';
 import AddProduct from './components/AddProduct';
 import NavBarManu from './components/NavBarManu';
 import ProductDetail from './components/ProductDetail';
+import UpdateProduct from './components/UpdateProduct';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route  path='/' element={<ShowProducts/>} />
           <Route path='addproduct/' element={<AddProduct/>} />
           <Route path='/:id/' element={<ProductDetail/>} />
-          <Route path='/:id/update' element={null} />
+          <Route path='/:id/update/' element={<UpdateProduct/>} />
         </Routes>
       </Router>
     </div>
