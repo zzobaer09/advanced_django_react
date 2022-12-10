@@ -8,7 +8,6 @@ import {
     MDBCardTitle,
     MDBCardText,
     MDBCardImage,
-    MDBBtn
 } from 'mdb-react-ui-kit';
 
 
@@ -41,7 +40,7 @@ const ProductDetail = () => {
                     <MDBCardText>
                         {product.description}
                     </MDBCardText>
-                    <Link className='btn btn-primary m-2' to={`$/{product.id}/update`}>Update</Link>
+                    <Link className='btn btn-primary m-2' to={`/${product.id}/update`}>Update</Link>
                     <Link className='btn btn-danger m-2' to="#">Delete</Link>
                 </MDBCardBody>
             </MDBCard>

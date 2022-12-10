@@ -18,22 +18,21 @@ const UpdateProduct = () => {
 
     const AddProductInfo = async () =>{
 
-
         let formField = new FormData()
+
         formField.append('name',Name)
         formField.append('price',Price)
         formField.append('description',Description)
         formField.append('category',Category)
         
         if (Image != null) {
-        formField.append('image',Image)
+        	formField.append('image',Image)
         }
 
-        console.log(formField);
-
+		
 		await axios({
-			method: "PUT",
-			url: API_URL + `api/${id}`,
+			method: "POST",
+			url: `http://127.0.0.1:8000/api/`,
 			data: formField
 		}).then(r => {
 			console.log(r.data);
@@ -49,6 +48,7 @@ const UpdateProduct = () => {
 		setDescription(data.description)
 		setCategory(data.category)
     }
+
   	useEffect(()=>{
     	getProduct()
       
@@ -122,3 +122,6 @@ const UpdateProduct = () => {
 }
 
 export default UpdateProduct
+
+
+

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-wclkp!v5^x*hm2a2j5-qh_6m0*w0fs=go8pq8#d85sb$2=k^+4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -92,6 +92,19 @@ DATABASES = {
 
 
 CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+
+
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
