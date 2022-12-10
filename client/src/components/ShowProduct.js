@@ -23,7 +23,7 @@ const ShowProducts = () => {
 
             {
                 products.map((product , index)=>(
-                    <Card className="m-2 rounden shadow-lg" style={{ width: '22rem' }}>
+                    <Card className="m-2 rounden shadow-lg" style={{ width: '360px' }}>
                         <Card.Img variant="top" src={product.image}/>
                         <Card.Body>
                             <Card.Title>{product.name}</Card.Title>

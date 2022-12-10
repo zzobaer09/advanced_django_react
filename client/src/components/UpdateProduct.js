@@ -1,60 +1,62 @@
 import axios from 'axios'
-import React, { useState , useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from 'react-bootstrap'
 import API_URL from './BackendDefaustUrls';
 import {useNavigate, useParams} from "react-router-dom"
 
+const AddProduct = () => {
+	const [Image , setImage] = useState(null)
+	const [Name , setName] = useState("")
+	const [Price , setPrice] = useState("")
+	const [Description , setDescription] = useState("")
+	const [Category , setCategory] = useState("")
+	const navigate = useNavigate()
+	
+	const {id} = useParams()
+	
+	// const getProduct = async () => {
+	// 	await axios.get(API_URL+`api/${id}/`).then(response => {
+	// 		return response.data
+	// 	}).then(data => {
+	// 		setName(data.name)
+	// 		setImage(data.image)
+	// 		setPrice(data.price)
+	// 		setDescription(data.description)
+	// 		setCategory(data.category)
+	// 	})
+
+	// }
+
+	// useEffect(()=>{
+	// 	getProduct()
+	// },[])
+
+	const AddProductInfo = async () =>{
 
 
-const UpdateProduct = () => {
-    const [Image , setImage] = useState(null)
-    const [Name , setName] = useState("")
-    const [Price , setPrice] = useState("")
-    const [Description , setDescription] = useState("")
-    const [Category , setCategory] = useState("")
-    
-    const {id} = useParams()
-    const navigate = useNavigate()
-
-    const AddProductInfo = async () =>{
-
-        let formField = new FormData()
-
-        formField.append('name',Name)
-        formField.append('price',Price)
-        formField.append('description',Description)
-        formField.append('category',Category)
-        
-        if (Image != null) {
-        	formField.append('image',Image)
-        }
+		let formField = new FormData()
+		formField.append('name',Name)
+		formField.append('price',Price)
+		formField.append('description',Description)
+		formField.append('category',Category)
+		
+		if (Image != null) {
+		formField.append('image',Image)
+		}
 
 		
 		await axios({
-			method: "POST",
-			url: `http://127.0.0.1:8000/api/`,
-			data: formField
-		}).then(r => {
-			console.log(r.data);
-			navigate("/")
+		method: 'POST',
+		url: API_URL + `api/`,
+		data:formField
+		}).then(response => {
+		console.log(response.data);
+		navigate("/")
 		})
-    }
 
-    const getProduct = async () => {
-		const {data} = await axios.get(API_URL + `api/${id}/`)
-		setImage(data.image)
-		setName(data.name)
-		setPrice(data.price)
-		setDescription(data.description)
-		setCategory(data.category)
-    }
+	}
 
-  	useEffect(()=>{
-    	getProduct()
-      
-  	},[])
-
-  	return (
+	return (
 		<div>
 		<div className='container'>
 			<div className="w-75 mx-auto shadow p-5">
@@ -118,10 +120,7 @@ const UpdateProduct = () => {
 			</div>
 		</div>
 		</div>
-	)
+  	)
 }
 
-export default UpdateProduct
-
-
-
+export default AddProduct

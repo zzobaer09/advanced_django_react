@@ -16,7 +16,7 @@ function App() {
       <Router>
         <NavBarManu />
         <Routes>
-          <Route  path='/' element={<ShowProducts/>} />
+          <Route path='/' element={<ShowProducts/>} />
           <Route path='addproduct/' element={<AddProduct/>} />
           <Route path='/:id/' element={<ProductDetail/>} />
           <Route path='/:id/update/' element={<UpdateProduct/>} />

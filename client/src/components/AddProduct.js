@@ -10,6 +10,7 @@ const AddProduct = () => {
   const [Description , setDescription] = useState("")
   const [Category , setCategory] = useState("")
   const navigate = useNavigate()
+  
   const AddProductInfo = async () =>{
 
 
