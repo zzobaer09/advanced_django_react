@@ -14,27 +14,27 @@ const AddProduct = () => {
 	
 	const {id} = useParams()
 	
-	// const getProduct = async () => {
-	// 	await axios.get(API_URL+`api/${id}/`).then(response => {
-	// 		return response.data
-	// 	}).then(data => {
-	// 		setName(data.name)
-	// 		setImage(data.image)
-	// 		setPrice(data.price)
-	// 		setDescription(data.description)
-	// 		setCategory(data.category)
-	// 	})
+	useEffect(()=>{
+		getProduct()
+	},[])
 
-	// }
+	const getProduct = async () => {
+		const {data} = await axios.get(API_URL+`api/${id}/`)
 
-	// useEffect(()=>{
-	// 	getProduct()
-	// },[])
+		setName(data.name)
+		setImage(data.image)
+		setPrice(data.price)
+		setDescription(data.description)
+		setCategory(data.category)
+
+
+	}
+
 
 	const AddProductInfo = async () =>{
 
 
-		let formField = new FormData()
+		let formField = await new FormData()
 		formField.append('name',Name)
 		formField.append('price',Price)
 		formField.append('description',Description)
@@ -44,16 +44,16 @@ const AddProduct = () => {
 		formField.append('image',Image)
 		}
 
-		
+		const arr = [Name , Price , Description , Image , Category]
+		console.log(arr);
 		await axios({
-		method: 'POST',
-		url: API_URL + `api/`,
-		data:formField
+			method: "PUT",
+			url: API_URL + `api/${id}/`,
+			data:formField
 		}).then(response => {
-		console.log(response.data);
-		navigate("/")
+			console.log(response.data);
+			navigate("/")
 		})
-
 	}
 
 	return (

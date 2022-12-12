@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React , {useState , useEffect} from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import API_URL from './BackendDefaustUrls'
 import {
     MDBCard,
@@ -9,9 +9,11 @@ import {
     MDBCardText,
     MDBCardImage,
 } from 'mdb-react-ui-kit';
+import { Button } from 'react-bootstrap';
 
 
 const ProductDetail = () => {
+    const navigation = useNavigate()
     const [product , setProduct] = useState([])
     const {id} = useParams()
     const getProduct = async () => {
@@ -22,6 +24,10 @@ const ProductDetail = () => {
         getProduct()
         
     },[])
+    const deleteProduct = async id => {
+        await axios.delete(API_URL+`api/${id}/`)
+        navigation("/")
+    }
     const center_ = {
 
         position: 'absolute',
@@ -41,7 +47,7 @@ const ProductDetail = () => {
                         {product.description}
                     </MDBCardText>
                     <Link className='btn btn-primary m-2' to={`/${product.id}/update`}>Update</Link>
-                    <Link className='btn btn-danger m-2' to="#">Delete</Link>
+                    <Button className='btn btn-danger m-2' onClick={()=>deleteProduct(product.id)}>Delete</Button>
                 </MDBCardBody>
             </MDBCard>
         </div>

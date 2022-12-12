@@ -27,9 +27,6 @@ const ShowProducts = () => {
                         <Card.Img variant="top" src={product.image}/>
                         <Card.Body>
                             <Card.Title>{product.name}</Card.Title>
-                            <Card.Text>
-                                {product.description}
-                            </Card.Text>
                         </Card.Body>
                         <ListGroup className="list-group-flush">
                             <ListGroup.Item>price: {product.price}</ListGroup.Item>
